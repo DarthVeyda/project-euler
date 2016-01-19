@@ -10,11 +10,11 @@ namespace ProjectEuler
      * How many such routes are there through a 20×20 grid?
      */
 
-    internal class Problem15 : Problem
+    internal class Problem15 : BaseProblem
     {
-        public Problem15(int gridSize)
+        public Problem15(int problemNumber, long gridSize, string outputTemplate)
+            : base(problemNumber, gridSize, outputTemplate)
         {
-            Init(15, gridSize, "The number of routes through a {0}x{0} grid is {1}");
         }
 
         protected override long Solve()
@@ -35,11 +35,6 @@ namespace ProjectEuler
             Console.WriteLine(string.Join(" ", PascalTriangleLine(lineNumber)));
         }
 
-        /// <summary>
-        /// Returns Nth line of Pascal Triangle
-        /// </summary>
-        /// <param name="lineNumber"></param>
-        /// <returns></returns>
         private IEnumerable<long> PascalTriangleLine(long lineNumber)
         {
             yield return 1;

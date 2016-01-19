@@ -19,11 +19,11 @@ namespace ProjectEuler
      * NOTE: Once the chain starts the terms are allowed to go above one million.
      */
 
-    internal class Problem14 : Problem
+    internal class Problem14 : BaseProblem
     {
-        public Problem14(long range)
+        public Problem14(int problemNumber, long range, string outputTemplate)
+            : base(problemNumber, range, outputTemplate)
         {
-            Init(14, range, "The number under {0} that produces the longest Collatz chain is {1}");
         }
 
         protected override long Solve()
@@ -46,18 +46,19 @@ namespace ProjectEuler
                 }
             }
             return maxChainStart;
+
         }
 
-        private long CollatzSequence(long number)
+        private long CollatzSequence(long Number)
         {
-            if (number <= 0) throw new ArgumentOutOfRangeException("number","Collatz sequence is defined for positive integers only");
+            if (Number <= 0) throw new ArgumentOutOfRangeException("Number","Collatz sequence is defined for positive integers only");
 
-            switch (number % 2)
+            switch (Number % 2)
             {
                 case 0:
-                    return number/2;
+                    return Number/2;
                 case 1:
-                    return 3 * number + 1;
+                    return 3 * Number + 1;
             }
 
             return 1;

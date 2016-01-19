@@ -108,7 +108,7 @@ namespace ProjectEuler
 53503534226472524250874054075591789781264330331690
      */
 
-    internal class Problem13 : Problem
+    internal class Problem13 : BaseProblem
     {
         private readonly string[] _longNumbers = 
         {
@@ -214,19 +214,18 @@ namespace ProjectEuler
             "53503534226472524250874054075591789781264330331690"
         };
 
-        public Problem13(int digitCount)
+        public Problem13(int problemNumber, long digitCount, string outputTemplate)
+            : base(problemNumber, digitCount, outputTemplate)
         {
-            Init(13, digitCount, "The first {0} digits of the sum are {1}");
         }
 
         protected override long Solve()
         {
-            int approxDigitCount = (int) InputParam + 1; // First X digits of each number + 1 digit to account for previous carry
- 
+            int approxDigitCount = (int)InputParam+1; // First X digits of each number + 1 digit to account for previous carry
+
             long approxSum = _longNumbers.Sum(number => Convert.ToInt64(number.Substring(0, approxDigitCount)));
             approxSum = Convert.ToInt64(approxSum.ToString().Substring(0, (int)InputParam));
             return approxSum;
         }
-
     }
 }

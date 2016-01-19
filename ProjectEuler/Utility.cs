@@ -15,5 +15,10 @@ namespace ProjectEuler
         {
             return string.Join(", ", array);
         }
+
+        public static StringBuilder GenerateOutput(int problemNumber, StringBuilder problemOutput)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

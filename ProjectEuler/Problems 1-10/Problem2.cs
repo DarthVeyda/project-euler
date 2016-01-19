@@ -10,13 +10,14 @@ namespace ProjectEuler
      * find the sum of the even-valued terms.
      */
 
-    internal class Problem2 : Problem
+    internal class Problem2 : BaseProblem
     {
-        public Problem2(int cap)
+        private readonly double Phi = (1 + Math.Sqrt(5)) / 2;
+        private readonly double phi = (1 - Math.Sqrt(5)) / 2;
+
+        public Problem2(int problemNumber, long cap, string outputTemplate)
+            : base(problemNumber, cap, outputTemplate)
         {
-            ProblemNumber = 2;
-            InputParam = cap;
-            OutputTemplate = "The sum of the even-valued terms in Fibonacci sequence lesser than {0} equals {1}";
         }
 
         protected override long Solve() 
@@ -24,11 +25,10 @@ namespace ProjectEuler
             long Sum = 0;
             int Term = 0;
             int Count = 1;
-            
+            //an = [ Phin - (phi)n ]/Sqrt[5]. 
             do 
             {
-                //an = [ Phin - (phi)n ]/Sqrt[5] - formula for n-th Fibonacci number
-                Term = Convert.ToInt32((Math.Pow(Constants.Phi, Count) - Math.Pow(Constants.phi, Count)) / Math.Sqrt(5));
+                Term = Convert.ToInt32((Math.Pow(Phi, Count) - Math.Pow(phi, Count)) / Math.Sqrt(5));
                 if (Term % 2 == 0)
                     Sum += Term;
                 Count++;

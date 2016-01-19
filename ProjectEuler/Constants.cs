@@ -8,10 +8,6 @@ namespace ProjectEuler
 {
     internal static class Constants
     {
-        //constants for calculating Fibonacci numbers
-        public static readonly double Phi = (1 + Math.Sqrt(5)) / 2;
-        public static readonly double phi = (1 - Math.Sqrt(5)) / 2;
-
         //coefficients for Gamma function approximation (table constants)
         public static readonly double[] CoeffsApprox = 
         {

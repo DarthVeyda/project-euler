@@ -22,11 +22,11 @@
      * What is the value of the first triangle number to have over five hundred divisors?
     */
 
-    internal class Problem12 : Problem
+    internal class Problem12 : BaseProblem
     {
-        public Problem12(int factorCount)
+        public Problem12(int problemNumber, long factorCount, string outputTemplate)
+            : base(problemNumber, factorCount, outputTemplate)
         {
-            Init(12, factorCount, "The value of the first triangle number to have over {0} divisors is {1}");
         }
 
         protected override long Solve()

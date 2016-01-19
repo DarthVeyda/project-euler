@@ -5,13 +5,11 @@
      * What is the 10 001st prime number?
 */
 
-    internal class Problem7 : Problem
+    internal class Problem7 : BaseProblem
     {
-        public Problem7(int number)
+        public Problem7(int problemNumber, long number, string outputTemplate)
+            : base(problemNumber, number, outputTemplate)
         {
-            ProblemNumber = 7;
-            InputParam = number;
-            OutputTemplate = "The {0}th prime number is {1}";
         }
 
         protected override long Solve() 

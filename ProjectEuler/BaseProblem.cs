@@ -2,15 +2,7 @@
 
 namespace ProjectEuler
 {
-    internal interface ISolvable
-    {
-        long? SolutionValue { get; }
-
-        long Solve();
-        StringBuilder SolutionOutput();
-    }
-
-    abstract class Problem
+    internal abstract class BaseProblem
     {
         protected int ProblemNumber;
 
@@ -20,25 +12,26 @@ namespace ProjectEuler
 
         private long? _solutionValue;
 
-        public long? SolutionValue
+        protected long? SolutionValue
         {
             get { return _solutionValue ?? (_solutionValue = Solve()); }
         }
 
-        protected abstract long Solve();
-
-        protected void Init(int problemNumber, long inputParam, string outputTemplate)
+        protected BaseProblem(int problemNumber, long inputParam, string outputTemplate)
         {
             ProblemNumber = problemNumber;
             InputParam = inputParam;
             OutputTemplate = outputTemplate;
         }
 
+        protected abstract long Solve();
+
         public StringBuilder SolutionOutput()
         {
             StringBuilder result = new StringBuilder();
             result.AppendFormat("Problem {0}:\n", ProblemNumber);
-            return result.AppendFormat(OutputTemplate, InputParam, SolutionValue);
+            result.AppendFormat(OutputTemplate, InputParam, SolutionValue);
+            return result;
         }
     }
 }

@@ -4,17 +4,13 @@
      * first one hundred natural numbers and the square of the sum.
      */
 
-    internal class Problem6 : Problem
+    internal class Problem6 : BaseProblem
     {
-        public Problem6(int count)
+        public Problem6(int problemNumber, long count, string outputTemplate)
+            : base(problemNumber, count, outputTemplate)
         {
-            ProblemNumber = 6;
-            InputParam = count;
-            OutputTemplate =
-                "The difference between the sum of the squares of the first {0} natural numbers and the square of the sum is {1}";
         }
 
-  
         protected override long Solve()
         {
             long diff = 0;
@@ -25,7 +21,6 @@
                     if (i != j)
                         diff += i * j;
                 }
-
             return diff;
         }
     }

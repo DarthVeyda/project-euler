@@ -7,13 +7,11 @@ namespace ProjectEuler
      * What is the largest prime factor of the number 600851475143 ?
      */
 
-    internal class Problem3 : Problem
+    internal class Problem3 : BaseProblem
     {
-        public Problem3(long number)
+        public Problem3(int problemNumber, long number, string outputTemplate)
+            : base(problemNumber, number, outputTemplate)
         {
-            ProblemNumber = 3;
-            InputParam = number;
-            OutputTemplate = "The largest prime factor of the number {0} is {1}";
         }
 
         protected override long Solve() 
@@ -21,7 +19,7 @@ namespace ProjectEuler
             long maxFactor = 1;
             for (long p = Convert.ToInt64(Math.Truncate(Math.Sqrt(InputParam))); p >= 2; p--) 
             {
-                if (InputParam % p == 0)
+                if ((InputParam % p == 0) && ((p % 6 == 1) || (p % 6 == 5) || (p == 3) || (p == 2))) 
                 {
                     if (CommonFunctions.IsPrime(p))
                     {
@@ -30,7 +28,6 @@ namespace ProjectEuler
                     }
                 }
             }
-
             return maxFactor;
         }
     }

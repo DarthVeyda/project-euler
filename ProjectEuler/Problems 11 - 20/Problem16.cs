@@ -8,21 +8,21 @@ namespace ProjectEuler
      * What is the sum of the digits of the number 2^1000?
      */
 
-    internal class Problem16 : Problem
+    internal class Problem16 : BaseProblem
     {
         /*
          * For now there seems to be no analytical solution for this problem
          */
 
-        public Problem16()
+        public Problem16(int problemNumber, long inputParam, string outputTemplate)
+            : base(problemNumber, inputParam, outputTemplate)
         {
-            Init(16, -1, "The sum of the digits of the number 2^1000 is {1}");
         }
 
         protected override long Solve()
         {
             return BigInteger.Pow(2, 1000).ToString().Sum(el => long.Parse(el.ToString()));
-                //ToByteArray() returns incorrect values (all zeroes???)
+                //ToByteArray() returns incorrect values (all zeroes)
         }
     }
 }

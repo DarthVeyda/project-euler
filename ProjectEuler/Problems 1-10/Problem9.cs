@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ProjectEuler
 {
-    internal class Problem9 : Problem
+    internal class Problem9 : BaseProblem
     {
         /*
          * A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
@@ -12,11 +12,11 @@ namespace ProjectEuler
          * Find the product abc.
          */
 
-        public Problem9(int sum)
+        public Problem9(int problemNumber, long sum, string outputTemplate)
+            : base(problemNumber, sum, outputTemplate)
         {
-            Init(9, sum, "There exists exactly one Pythagorean triplet for which a + b + c = {0}. The product abc = {1}");
         }
-
+        
         protected override long Solve()
         {
             /*
@@ -73,7 +73,6 @@ namespace ProjectEuler
                     return a * b * c;
                 }
             }
-
             return 0;
         }
     }

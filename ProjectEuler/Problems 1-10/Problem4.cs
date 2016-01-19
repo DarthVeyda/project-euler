@@ -9,34 +9,30 @@ namespace ProjectEuler
      * Find the largest palindrome made from the product of two 3-digit numbers.
      */
 
-    internal class Problem4 : Problem
+    internal class Problem4 : BaseProblem
     {
-        private int Num1;
-        private int Num2;
-
-        public Problem4()
+        public Problem4(int problemNumber, long inputParam, string outputTemplate)
+            : base(problemNumber, inputParam, outputTemplate)
         {
-            ProblemNumber = 4;
-            OutputTemplate = "The largest palindrome made from the product of two 3-digit numbers is {2}x{1} = {0}";
         }
 
         protected override long Solve()
         {
-            long MaxProduct = 0;
-            var PalindromeProducts = Enumerable.Empty<object>()
-             .Select(r => new { Num1 = (int)MaxProduct, Num2 = (int)MaxProduct, Product = MaxProduct }) // prototype of anonymous type
+            long maxProduct = 0;
+            var palindromeProducts = Enumerable.Empty<object>()
+             .Select(r => new { Num1 = (int)maxProduct, Num2 = (int)maxProduct, Product = maxProduct }) // prototype of anonymous type
              .ToList();
-            for (int Number1 = 999; Number1 >= 111; Number1--) 
+            for (int number1 = 999; number1 >= 111; number1--) 
             {
-                for (int Number2 = 999; Number2 >= 111; Number2--) 
+                for (int number2 = 999; number2 >= 111; number2--) 
                 {
-                    long Product = Number1 * Number2;
-                    string sProduct = Product.ToString();
-                    if (Product >= 100001)
+                    long product = number1 * number2;
+                    string sProduct = product.ToString();
+                    if (product >= 100001)
                     {
                         if ((sProduct[0] == sProduct[5]) && (sProduct[1] == sProduct[4]) && (sProduct[2] == sProduct[3]))
                         {
-                            PalindromeProducts.Add(new { Num1 = Number1, Num2 = Number2, Product = Product });
+                            palindromeProducts.Add(new { Num1 = number1, Num2 = number2, Product = product });
                         }
                     }
                     else 
@@ -46,19 +42,11 @@ namespace ProjectEuler
                 }
             }
 
-            var m = PalindromeProducts.OrderByDescending(i => i.Product).FirstOrDefault();
-            MaxProduct = m.Product;
-            Num1 = m.Num1;
-            Num2 = m.Num2;
-            return MaxProduct;
-        }
-
-
-        public new StringBuilder SolutionOutput()
-        {
-            StringBuilder result = new StringBuilder();
-            result.AppendFormat("Problem {0}:\n", ProblemNumber);
-            return result.AppendFormat(OutputTemplate, SolutionValue, Num1, Num2);
+            var m = palindromeProducts.OrderByDescending(i => i.Product).FirstOrDefault();
+            //not the best way to handle custom output, but I'm out of ideas for now
+            StringBuilder tmp = new StringBuilder();
+            OutputTemplate = tmp.AppendFormat(OutputTemplate, m.Num1, m.Num2, m.Product).ToString();
+            return m.Product;
         }
     }
 }

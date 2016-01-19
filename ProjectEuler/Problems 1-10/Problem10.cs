@@ -7,11 +7,11 @@ namespace ProjectEuler
      * Find the sum of all the primes below two million. 
      */
 
-    internal class Problem10 : Problem
+    internal class Problem10 : BaseProblem
     {
-        public Problem10(int max)
+        public Problem10(int problemNumber, long max, string outputTemplate)
+            : base(problemNumber, max, outputTemplate)
         {
-            Init(10, max, "The sum of all the primes below {0} is {1}");
         }
 
         protected override long Solve()
