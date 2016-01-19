@@ -1,0 +1,11 @@
+C:\Users\Meeee\Documents\Visual Studio 2013\Projects\ProjectEuler\TestProjectEuler\obj\Debug\TestProjectEuler.csprojResolveAssemblyReference.cache
+C:\Users\Meeee\Documents\Visual Studio 2013\Projects\ProjectEuler\TestProjectEuler\bin\Debug\TestProjectEuler.exe.config
+C:\Users\Meeee\Documents\Visual Studio 2013\Projects\ProjectEuler\TestProjectEuler\bin\Debug\TestProjectEuler.exe
+C:\Users\Meeee\Documents\Visual Studio 2013\Projects\ProjectEuler\TestProjectEuler\bin\Debug\TestProjectEuler.pdb
+C:\Users\Meeee\Documents\Visual Studio 2013\Projects\ProjectEuler\TestProjectEuler\bin\Debug\nunit.framework.dll
+C:\Users\Meeee\Documents\Visual Studio 2013\Projects\ProjectEuler\TestProjectEuler\bin\Debug\nunit.mocks.dll
+C:\Users\Meeee\Documents\Visual Studio 2013\Projects\ProjectEuler\TestProjectEuler\bin\Debug\ProjectEuler.exe
+C:\Users\Meeee\Documents\Visual Studio 2013\Projects\ProjectEuler\TestProjectEuler\bin\Debug\ProjectEuler.pdb
+C:\Users\Meeee\Documents\Visual Studio 2013\Projects\ProjectEuler\TestProjectEuler\bin\Debug\nunit.framework.xml
+C:\Users\Meeee\Documents\Visual Studio 2013\Projects\ProjectEuler\TestProjectEuler\obj\Debug\TestProjectEuler.exe
+C:\Users\Meeee\Documents\Visual Studio 2013\Projects\ProjectEuler\TestProjectEuler\obj\Debug\TestProjectEuler.pdb
