@@ -93,24 +93,22 @@ namespace ProjectEuler
         /// <returns></returns>
         public static List<long> GetPrimeFactors(long Number)
         {
-            List<long> Primes = new List<long>();
+            List<long> primes = new List<long>();
 
-            if ((Number == 0) || (Number == 1)) return Primes;
-            if (IsPrime(Number)) { Primes.Add(Number); return Primes; }
+            if ((Number == 0) || (Number == 1)) return primes;
+            if (IsPrime(Number)) { primes.Add(Number); return primes; }
 
-            long MaxFactor = (long)Math.Truncate(Math.Sqrt(Number));
+            long maxFactor = (long)Math.Truncate(Math.Sqrt(Number));
 
-            for (long factor = 2; factor <= MaxFactor; factor++)
+            for (long factor = 2; factor <= maxFactor; factor++)
             {
-                if (IsPrime(Number)) { Primes.Add(Number); break; }
-
-                //if (Number == 1) break;
                 if (IsPrime(factor))
                 {
-                    while ((Number % factor == 0) && (Number > 1)) { Primes.Add(factor); Number = Number / factor; }
+                    while ((Number % factor == 0) && (Number > 1)) { primes.Add(factor); Number = Number / factor; }
                 }
+                if (IsPrime(Number)) { primes.Add(Number); break; }
             }
-            return Primes;
+            return primes;
         }
 
         /// <summary>
